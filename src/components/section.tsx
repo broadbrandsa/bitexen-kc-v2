@@ -64,6 +64,31 @@ export function Section({
 }
 
 /**
+ * Interstitial — a full-width pull-quote beat used between sections (the deck's
+ * "thesis" / "pause" / "reminder" moments). Not part of the section registry.
+ */
+export function Interstitial({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="border-b border-[var(--kc-line)] bg-[var(--kc-black)]/40 py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--kc-gold)]">
+          {label}
+        </div>
+        <p className="mt-6 text-2xl font-medium leading-snug tracking-tight text-[var(--kc-paper)] md:text-3xl">
+          {children}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/**
  * KeyTakeaway — the recurring gold-accented callout that closes each section
  * of the source deck.
  */

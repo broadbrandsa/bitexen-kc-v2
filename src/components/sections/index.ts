@@ -6,6 +6,7 @@ export {
   WhyKaizerChiefs,
 } from "@/components/sections/opportunity-group";
 export { FanEconomy, Token, Launch } from "@/components/sections/model-group";
+export { EcosystemValue } from "@/components/sections/ecosystem-value";
 export {
   Revenue,
   Stakeholders,
@@ -19,3 +20,5 @@ export {
   Vision,
   Discussion,
 } from "@/components/sections/partnership-group";
+export { BitexenEnables } from "@/components/sections/bitexen-enables";
+export { Conclusion } from "@/components/sections/conclusion";

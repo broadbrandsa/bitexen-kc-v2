@@ -1,12 +1,28 @@
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--kc-line)] bg-[var(--kc-ink)] py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-6 md:flex-row md:items-center">
-        <div className="text-xs uppercase tracking-[0.32em] text-[var(--kc-mute)]">
-          Prepared by Bitexen · for Kaizer Chiefs leadership
+    <footer className="border-t border-[var(--kc-line)] bg-[var(--kc-ink)] py-12">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--bx-blue-soft)]">
+              Bitexen
+            </div>
+            <div className="mt-2 text-xs uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+              Prepared for Kaizer Chiefs FC · in association with DSG
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+            <span className="text-[var(--kc-paper)]/70">bitexen.com</span>
+            <span aria-hidden="true">·</span>
+            <span className="text-[var(--kc-paper)]/70">dsg.co.za</span>
+            <span aria-hidden="true">·</span>
+            <span className="text-[var(--kc-paper)]/70">kaizerchiefs.com</span>
+          </div>
         </div>
-        <div className="text-xs text-[var(--kc-mute)]">
-          Kaizer Chiefs × Bitexen · Digital Fan Economy · 2026 · Confidential
+
+        <div className="mt-8 border-t border-[var(--kc-line)] pt-6 text-xs uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+          2026 · Strategic Proposal · Confidential
         </div>
       </div>
     </footer>

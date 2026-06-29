@@ -18,17 +18,17 @@ export function Header() {
     <header className="no-print sticky top-0 z-40 border-b border-[var(--kc-line)] bg-[var(--kc-ink)]/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
-          <ChiefMark className="h-8 w-auto" />
-          <span className="text-lg font-light text-[var(--kc-mute)]">×</span>
           <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--bx-blue-soft)]">
             Bitexen
           </span>
+          <span className="text-base font-light text-[var(--kc-mute)]">×</span>
+          <ChiefMark className="h-8 w-auto" />
           <div className="hidden border-l border-[var(--kc-line)] pl-3 leading-none sm:block">
             <div className="text-[11px] uppercase tracking-[0.32em] text-[var(--kc-mute)]">
               Digital Fan Economy
             </div>
             <div className="text-sm font-semibold tracking-tight text-[var(--kc-paper)]">
-              Proposal · 2026
+              Strategic Proposal · 2026
             </div>
           </div>
         </Link>

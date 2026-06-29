@@ -25,6 +25,7 @@ export const SECTIONS: SectionMeta[] = [
   { id: "fan-economy", label: "The Digital Fan Economy" },
   { id: "token", label: "Why a Token" },
   { id: "launch", label: "Launching the Economy" },
+  { id: "ecosystem-value", label: "How the Ecosystem Creates Value" },
   { id: "revenue", label: "New Revenue Streams" },
   { id: "stakeholders", label: "Value for Everyone" },
   { id: "growth-engine", label: "The Growth Engine" },
@@ -32,9 +33,11 @@ export const SECTIONS: SectionMeta[] = [
   { id: "experiences", label: "Bringing It to Life" },
   { id: "beyond", label: "Beyond Fan Engagement" },
   { id: "sponsorship", label: "Strategic Alignment" },
+  { id: "bitexen-enables", label: "How Bitexen Enables It" },
   { id: "why-bitexen", label: "Why Bitexen" },
   { id: "vision", label: "The Bigger Vision" },
   { id: "discussion", label: "Discussion" },
+  { id: "conclusion", label: "Conclusion" },
 ];
 
 export const CHAPTERS: ChapterMeta[] = [
@@ -50,9 +53,15 @@ export const CHAPTERS: ChapterMeta[] = [
     sectionIds: ["fan-economy", "token", "launch"],
   },
   {
-    id: "revenue",
+    id: "ecosystem-value",
     label: "The Commercial Case",
-    sectionIds: ["revenue", "stakeholders", "growth-engine", "long-term-value"],
+    sectionIds: [
+      "ecosystem-value",
+      "revenue",
+      "stakeholders",
+      "growth-engine",
+      "long-term-value",
+    ],
   },
   {
     id: "experiences",
@@ -62,7 +71,14 @@ export const CHAPTERS: ChapterMeta[] = [
   {
     id: "sponsorship",
     label: "The Partnership",
-    sectionIds: ["sponsorship", "why-bitexen", "vision", "discussion"],
+    sectionIds: [
+      "sponsorship",
+      "bitexen-enables",
+      "why-bitexen",
+      "vision",
+      "discussion",
+      "conclusion",
+    ],
   },
 ];
 

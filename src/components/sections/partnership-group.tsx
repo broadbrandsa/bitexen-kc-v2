@@ -153,7 +153,8 @@ export function Discussion() {
       <div className="mt-12 flex items-center gap-4 rounded-xl border border-[var(--bx-blue)]/30 bg-[var(--bx-blue)]/[0.06] p-6">
         <MessageCircleQuestion className="size-7 shrink-0 text-[var(--bx-blue-soft)]" />
         <p className="text-lg font-medium text-[var(--kc-paper)]">
-          Let&apos;s build Africa&apos;s leading digital fan economy — together.
+          These questions frame the working session ahead — let&apos;s shape the answers
+          together.
         </p>
       </div>
     </Section>
