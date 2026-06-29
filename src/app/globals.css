@@ -133,6 +133,84 @@
     transparent 12px);
 }
 
+/* ── Section tones — visual rhythm across the long scroll ── */
+.section-muted {
+  background: color-mix(in oklab, var(--kc-charcoal) 32%, transparent);
+}
+.section-feature {
+  background:
+    radial-gradient(900px 480px at 85% -5%, rgba(224, 156, 42, 0.08), transparent 60%),
+    radial-gradient(700px 420px at -5% 105%, rgba(47, 128, 237, 0.07), transparent 60%);
+}
+
+/* ── Interaction defaults ── */
+button:not(:disabled),
+a[href],
+[role="button"],
+label[for] {
+  cursor: pointer;
+}
+
+/* ── Scroll-reveal entrance animations ──
+ * Content starts hidden and rises into place when scrolled into view.
+ * Only applied when the user has not requested reduced motion; otherwise
+ * everything renders in its final, fully-visible state.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-reveal-stagger].is-visible > * {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0.04s; }
+  [data-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+  [data-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 0.16s; }
+  [data-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 0.22s; }
+  [data-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 0.28s; }
+  [data-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: 0.34s; }
+  [data-reveal-stagger].is-visible > *:nth-child(n + 7) { transition-delay: 0.40s; }
+
+  /* Hero entrance — plays on mount (post-unlock) */
+  .hero-stagger > * {
+    animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-stagger > *:nth-child(2) { animation-delay: 0.13s; }
+  .hero-stagger > *:nth-child(3) { animation-delay: 0.21s; }
+  .hero-stagger > *:nth-child(4) { animation-delay: 0.29s; }
+  .hero-stagger > *:nth-child(5) { animation-delay: 0.37s; }
+  .hero-stagger > *:nth-child(6) { animation-delay: 0.45s; }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media print {
   @page { size: A4; margin: 14mm 12mm; }
   html, body {

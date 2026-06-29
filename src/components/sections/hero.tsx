@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="bg-stadium relative overflow-hidden">
       <div className="bg-grid absolute inset-0 opacity-40" aria-hidden="true" />
-      <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-6 py-24">
+      <div className="hero-stagger relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-6 py-24">
         {/* Partnership lockup — Bitexen-led, prepared for Kaizer Chiefs */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-4">
           <BitexenMark className="h-7 w-auto md:h-8" />

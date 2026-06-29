@@ -1,13 +1,18 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { getSectionPosition } from "@/data/sections";
+import { Reveal } from "@/components/reveal";
+
+/** Sections that get the standout gradient treatment. */
+const FEATURE_IDS = new Set(["why-kc", "business-case", "why-bitexen", "conclusion"]);
 
 /**
  * Section — a top-level content block on the proposal.
  *
  * Renders a chapter ribbon (NN / total), an eyebrow, a heading and an optional
- * intro, followed by arbitrary children. The anchor `id` is used by the side
- * navigation and reading progress.
+ * intro, followed by arbitrary children. Background tone alternates by registry
+ * index (with a few feature sections) to give the long scroll visual rhythm,
+ * and content reveals on scroll.
  */
 export function Section({
   id,
@@ -26,38 +31,52 @@ export function Section({
 }) {
   const pos = id ? getSectionPosition(id) : null;
 
+  const tone =
+    id && FEATURE_IDS.has(id)
+      ? "section-feature"
+      : pos && pos.index % 2 === 1
+        ? "section-muted"
+        : "";
+
   return (
     <section
       id={id}
       className={cn(
         "scroll-mt-24 border-b border-[var(--kc-line)] py-20 md:py-28",
+        tone,
         className,
       )}
     >
       <div className="mx-auto max-w-7xl px-6">
-        {pos ? (
-          <div className="mb-10 flex items-center gap-3 text-[16px]">
-            <span className="font-mono uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-              {String(pos.index + 1).padStart(2, "0")}
-              <span className="text-[var(--kc-mute)]"> / {String(pos.total).padStart(2, "0")}</span>
-            </span>
-            <span className="h-px flex-1 bg-gradient-to-r from-[var(--kc-gold)]/40 via-[var(--kc-line)] to-transparent" />
-          </div>
-        ) : null}
-
-        <div className="max-w-3xl">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-            {eyebrow}
-          </div>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--kc-paper)] md:text-4xl">
-            {title}
-          </h2>
-          {intro ? (
-            <p className="mt-5 text-lg text-[var(--kc-paper)]/75">{intro}</p>
+        <Reveal>
+          {pos ? (
+            <div className="mb-8 flex items-baseline gap-4">
+              <span className="font-mono text-2xl font-bold tabular-nums leading-none text-[var(--kc-gold)]/80 md:text-3xl">
+                {String(pos.index + 1).padStart(2, "0")}
+              </span>
+              <span className="font-mono text-[16px] uppercase tracking-[0.32em] text-[var(--kc-mute)]">
+                / {String(pos.total).padStart(2, "0")}
+              </span>
+              <span className="h-px flex-1 translate-y-[-4px] bg-gradient-to-r from-[var(--kc-gold)]/40 via-[var(--kc-line)] to-transparent" />
+            </div>
           ) : null}
-        </div>
 
-        <div className="mt-12">{children}</div>
+          <div className="max-w-3xl">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+              {eyebrow}
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--kc-paper)] md:text-4xl">
+              {title}
+            </h2>
+            {intro ? (
+              <p className="mt-5 text-lg text-[var(--kc-paper)]/75">{intro}</p>
+            ) : null}
+          </div>
+        </Reveal>
+
+        <Reveal stagger className="mt-12">
+          {children}
+        </Reveal>
       </div>
     </section>
   );
@@ -76,14 +95,14 @@ export function Interstitial({
 }) {
   return (
     <section className="border-b border-[var(--kc-line)] bg-[var(--kc-black)]/40 py-20 md:py-28">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+      <Reveal className="mx-auto max-w-4xl px-6 text-center">
         <div className="text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--kc-gold)]">
           {label}
         </div>
         <p className="mt-6 text-2xl font-medium leading-snug tracking-tight text-[var(--kc-paper)] md:text-3xl">
           {children}
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

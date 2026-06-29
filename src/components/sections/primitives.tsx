@@ -24,7 +24,7 @@ export function PillarCard({
   const accentText = accent === "blue" ? "text-[var(--bx-blue-soft)]" : "text-[var(--kc-gold)]";
   const accentBg = accent === "blue" ? "bg-[var(--bx-blue)]/12" : "bg-[var(--kc-gold)]/12";
   return (
-    <div className="flex h-full flex-col rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 backdrop-blur transition hover:border-[var(--kc-gold)]/40">
+    <div className="flex h-full flex-col rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 backdrop-blur transition duration-200 ease-out hover:-translate-y-1 hover:border-[var(--kc-gold)]/40 hover:shadow-lg hover:shadow-black/25">
       {Icon ? (
         <div className={cn("mb-4 inline-flex size-10 items-center justify-center rounded-lg", accentBg)}>
           <Icon className={cn("size-5", accentText)} />
@@ -93,7 +93,7 @@ export function FlowChain({
 /** Stat — a large value with a small caption, for headline metrics. */
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 text-center">
+    <div className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 text-center transition duration-200 ease-out hover:-translate-y-1 hover:border-[var(--kc-gold)]/40 hover:shadow-lg hover:shadow-black/25">
       <div className="text-4xl font-bold tracking-tight text-[var(--kc-gold)] md:text-5xl">{value}</div>
       <div className="mt-2 text-sm text-[var(--kc-paper)]/70">{label}</div>
     </div>
