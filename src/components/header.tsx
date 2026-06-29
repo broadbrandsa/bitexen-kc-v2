@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChiefMark } from "@/components/chief-mark";
+import { BitexenMark } from "@/components/brand-marks";
 import { CHAPTERS, SECTIONS } from "@/data/sections";
 
 export function Header() {
@@ -18,9 +19,7 @@ export function Header() {
     <header className="no-print sticky top-0 z-40 border-b border-[var(--kc-line)] bg-[var(--kc-ink)]/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
-          <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--bx-blue-soft)]">
-            Bitexen
-          </span>
+          <BitexenMark className="h-5 w-auto" />
           <span className="text-base font-light text-[var(--kc-mute)]">×</span>
           <ChiefMark className="h-8 w-auto" />
           <div className="hidden border-l border-[var(--kc-line)] pl-3 leading-none sm:block">

@@ -1,5 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import { ChiefMark } from "@/components/chief-mark";
+import { BitexenMark, DsgMark } from "@/components/brand-marks";
 
 export function Hero() {
   return (
@@ -7,14 +8,8 @@ export function Hero() {
       <div className="bg-grid absolute inset-0 opacity-40" aria-hidden="true" />
       <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-6 py-24">
         {/* Partnership lockup — Bitexen-led, prepared for Kaizer Chiefs */}
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-          <span className="text-xl font-semibold uppercase tracking-[0.3em] text-[var(--bx-blue-soft)] md:text-2xl">
-            Bitexen
-          </span>
-          <span className="text-lg font-light text-[var(--kc-mute)]">·</span>
-          <span className="text-xs font-medium uppercase tracking-[0.32em] text-[var(--kc-mute)]">
-            Strategic Proposal
-          </span>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-4">
+          <BitexenMark className="h-7 w-auto md:h-8" />
           <span className="text-lg font-light text-[var(--kc-mute)]">×</span>
           <ChiefMark className="h-9 w-auto md:h-10" />
         </div>
@@ -49,12 +44,15 @@ export function Hero() {
         </div>
 
         {/* Credit line */}
-        <div className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-[var(--kc-line)] pt-6 text-[12px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
-          <span>
-            Presented by <span className="text-[var(--kc-paper)]/80">Bitexen · Strategic Partnerships</span>
+        <div className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-[var(--kc-line)] pt-6 text-[12px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+          <span className="flex items-center gap-2.5">
+            Presented by
+            <BitexenMark className="h-4 w-auto" />
+            <span className="text-[var(--kc-paper)]/80">· Strategic Partnerships</span>
           </span>
-          <span>
-            In association with <span className="text-[var(--kc-paper)]/80">DSG</span>
+          <span className="flex items-center gap-2.5">
+            In association with
+            <DsgMark className="h-5 w-auto" />
           </span>
           <span>2026 · Confidential</span>
         </div>

@@ -1,14 +1,15 @@
+import { BitexenMark, DsgMark } from "@/components/brand-marks";
+
 export function Footer() {
   return (
     <footer className="border-t border-[var(--kc-line)] bg-[var(--kc-ink)] py-12">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--bx-blue-soft)]">
-              Bitexen
-            </div>
-            <div className="mt-2 text-xs uppercase tracking-[0.28em] text-[var(--kc-mute)]">
-              Prepared for Kaizer Chiefs FC · in association with DSG
+            <BitexenMark className="h-6 w-auto" />
+            <div className="mt-4 flex flex-wrap items-center gap-2.5 text-xs uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+              Prepared for Kaizer Chiefs FC · in association with
+              <DsgMark className="h-4 w-auto" />
             </div>
           </div>
 
