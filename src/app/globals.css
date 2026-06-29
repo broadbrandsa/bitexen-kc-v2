@@ -258,6 +258,68 @@
   color: transparent;
 }
 
+/* ============================================================================
+ * Section themes — alternating white / dark / blue backgrounds create clear
+ * breaks between contexts. Light & blue themes re-map the kc-* variables
+ * within the section subtree, so existing components adapt automatically.
+ * ============================================================================ */
+
+/* Light (white) section */
+.theme-light {
+  --kc-ink: #f6f3ec;
+  --kc-charcoal: #ffffff;
+  --kc-line: #e6dfd0;
+  --kc-mute: #6c6e76;
+  --kc-paper: #191b1f;
+  --kc-gold: #b3760f;
+  --kc-gold-soft: #8a5a0f;
+  color: var(--kc-paper);
+}
+.section-light {
+  background:
+    radial-gradient(900px 480px at 88% -8%, rgba(47, 128, 237, 0.06), transparent 60%),
+    #f6f3ec;
+}
+.theme-light .kc-card {
+  background: #ffffff;
+  border-color: #e8e1d3;
+  box-shadow:
+    0 1px 2px rgba(20, 22, 26, 0.05),
+    0 22px 46px -30px rgba(20, 22, 26, 0.4);
+  backdrop-filter: none;
+}
+.theme-light .kc-card-gold {
+  background: linear-gradient(180deg, rgba(224, 156, 42, 0.14), #ffffff 62%);
+  border-color: rgba(179, 118, 15, 0.5);
+}
+.theme-light .kc-card-blue {
+  background: linear-gradient(180deg, rgba(47, 128, 237, 0.12), #ffffff 62%);
+  border-color: rgba(47, 128, 237, 0.42);
+}
+.theme-light .glow {
+  display: none;
+}
+.theme-light .ghost-number {
+  -webkit-text-stroke-color: rgba(179, 118, 15, 0.16);
+}
+
+/* Blue (navy) section — Bitexen identity bands */
+.theme-blue {
+  --kc-ink: #0b1a2e;
+  --kc-charcoal: #15273f;
+  --kc-line: #213a58;
+  --kc-mute: #8197b3;
+  --kc-paper: #eaf1fb;
+}
+.section-blue {
+  background:
+    radial-gradient(1000px 560px at 50% -12%, rgba(47, 128, 237, 0.22), transparent 60%),
+    linear-gradient(180deg, #0b1a2e 0%, #0a1422 100%);
+}
+.theme-blue .ghost-number {
+  -webkit-text-stroke-color: rgba(126, 179, 255, 0.16);
+}
+
 /* ── Interaction defaults ── */
 button:not(:disabled),
 a[href],

@@ -6,9 +6,13 @@
  * for the side-rail and header navigation.
  */
 
+/** Background theme — drives the alternating white / dark / blue section bands. */
+export type SectionTheme = "dark" | "light" | "blue";
+
 export type SectionMeta = {
   id: string;
   label: string;
+  theme: SectionTheme;
 };
 
 export type ChapterMeta = {
@@ -17,26 +21,31 @@ export type ChapterMeta = {
   sectionIds: string[];
 };
 
+/**
+ * Theme assignment alternates light/dark for clear context breaks, with navy
+ * "blue" bands reserved for the Bitexen-identity sections. Image-backed
+ * sections (why-kc, vision, conclusion) stay dark so their photo reads.
+ */
 export const SECTIONS: SectionMeta[] = [
-  { id: "about-bitexen", label: "About Bitexen" },
-  { id: "spectatorship", label: "The Changing Game" },
-  { id: "opportunity", label: "The Opportunity" },
-  { id: "why-kc", label: "Why Kaizer Chiefs" },
-  { id: "fan-economy", label: "The Digital Fan Economy" },
-  { id: "token", label: "Why a Token" },
-  { id: "launch", label: "Launching the Economy" },
-  { id: "ecosystem-value", label: "How the Ecosystem Creates Value" },
-  { id: "revenue", label: "New Revenue Streams" },
-  { id: "stakeholders", label: "Value for Everyone" },
-  { id: "growth-engine", label: "The Growth Engine" },
-  { id: "long-term-value", label: "Building Long-Term Value" },
-  { id: "experiences", label: "Bringing It to Life" },
-  { id: "beyond", label: "Beyond Fan Engagement" },
-  { id: "sponsorship", label: "Strategic Alignment" },
-  { id: "bitexen-enables", label: "How Bitexen Enables It" },
-  { id: "why-bitexen", label: "Why Bitexen" },
-  { id: "vision", label: "The Bigger Vision" },
-  { id: "conclusion", label: "Conclusion" },
+  { id: "about-bitexen", label: "About Bitexen", theme: "blue" },
+  { id: "spectatorship", label: "The Changing Game", theme: "dark" },
+  { id: "opportunity", label: "The Opportunity", theme: "light" },
+  { id: "why-kc", label: "Why Kaizer Chiefs", theme: "dark" },
+  { id: "fan-economy", label: "The Digital Fan Economy", theme: "light" },
+  { id: "token", label: "Why a Token", theme: "blue" },
+  { id: "launch", label: "Launching the Economy", theme: "dark" },
+  { id: "ecosystem-value", label: "How the Ecosystem Creates Value", theme: "light" },
+  { id: "revenue", label: "New Revenue Streams", theme: "dark" },
+  { id: "stakeholders", label: "Value for Everyone", theme: "light" },
+  { id: "growth-engine", label: "The Growth Engine", theme: "dark" },
+  { id: "long-term-value", label: "Building Long-Term Value", theme: "light" },
+  { id: "experiences", label: "Bringing It to Life", theme: "dark" },
+  { id: "beyond", label: "Beyond Fan Engagement", theme: "light" },
+  { id: "sponsorship", label: "Strategic Alignment", theme: "dark" },
+  { id: "bitexen-enables", label: "How Bitexen Enables It", theme: "blue" },
+  { id: "why-bitexen", label: "Why Bitexen", theme: "light" },
+  { id: "vision", label: "The Bigger Vision", theme: "dark" },
+  { id: "conclusion", label: "Conclusion", theme: "dark" },
 ];
 
 export const CHAPTERS: ChapterMeta[] = [
@@ -85,4 +94,9 @@ export function getSectionPosition(id: string): { index: number; total: number }
   const index = SECTIONS.findIndex((s) => s.id === id);
   if (index === -1) return null;
   return { index, total: SECTIONS.length };
+}
+
+/** Background theme for a section (defaults to dark for unknown ids). */
+export function getSectionTheme(id: string): SectionTheme {
+  return SECTIONS.find((s) => s.id === id)?.theme ?? "dark";
 }

@@ -39,7 +39,7 @@ export function SideMenu() {
       aria-label="Section navigation"
       className="no-print group/nav pointer-events-none fixed left-0 top-24 z-30 hidden h-[calc(100vh-6rem)] w-12 transition-[width] duration-300 ease-out hover:w-72 lg:block"
     >
-      <div className="pointer-events-auto h-full overflow-y-auto px-2 py-4 transition-[padding] duration-300 ease-out group-hover/nav:px-4">
+      <div className="pointer-events-auto h-full overflow-y-auto rounded-r-2xl px-2 py-4 transition-[padding,background] duration-300 ease-out group-hover/nav:bg-[var(--kc-ink)]/85 group-hover/nav:px-4 group-hover/nav:shadow-2xl group-hover/nav:shadow-black/40 group-hover/nav:backdrop-blur-md">
         <div className="whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-mute)] opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100">
           Contents
         </div>

@@ -1,19 +1,16 @@
 import { type CSSProperties, type ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { getSectionPosition } from "@/data/sections";
+import { getSectionPosition, getSectionTheme } from "@/data/sections";
 import { Reveal } from "@/components/reveal";
-
-/** Sections that get the standout gradient treatment. */
-const FEATURE_IDS = new Set(["why-kc", "why-bitexen", "conclusion"]);
 
 /**
  * Section — a top-level content block on the proposal.
  *
- * Renders a chapter ribbon (NN / total), an eyebrow, a heading and an optional
- * intro, followed by arbitrary children. Background tone alternates by registry
- * index (with a few feature sections) to give the long scroll visual rhythm,
- * and content reveals on scroll.
+ * Each section carries a background theme (white / dark / blue, from the
+ * registry) which re-maps the palette so the long scroll alternates between
+ * contexts with clear breaks. Renders a chapter ribbon, eyebrow, heading,
+ * optional intro, then arbitrary children — all revealing on scroll.
  */
 export function Section({
   id,
@@ -35,22 +32,32 @@ export function Section({
 }) {
   const pos = id ? getSectionPosition(id) : null;
   const idx = pos?.index ?? 0;
+  const theme = id ? getSectionTheme(id) : "dark";
 
-  const tone =
-    image
-      ? ""
-      : id && FEATURE_IDS.has(id)
-        ? "section-feature"
-        : pos && pos.index % 2 === 1
+  // Palette wrapper (re-maps kc-* variables for light/blue themes).
+  const themeClass = theme === "light" ? "theme-light" : theme === "blue" ? "theme-blue" : "";
+
+  // Background treatment when there's no photo.
+  const bgClass = image
+    ? ""
+    : theme === "light"
+      ? "section-light"
+      : theme === "blue"
+        ? "section-blue"
+        : idx % 2 === 1
           ? "section-muted"
           : "";
+
+  // Ambient glow blobs only on dark sections (light = clean white; blue has its own gradient).
+  const showGlows = !image && theme === "dark";
 
   return (
     <section
       id={id}
       className={cn(
         "relative scroll-mt-24 overflow-hidden border-b border-[var(--kc-line)] py-20 md:py-28",
-        tone,
+        themeClass,
+        bgClass,
         className,
       )}
     >
@@ -73,7 +80,7 @@ export function Section({
             }}
           />
         </>
-      ) : (
+      ) : showGlows ? (
         /* Ambient glow blobs — alternate sides/colours by index for variety */
         <>
           <span
@@ -87,7 +94,7 @@ export function Section({
             style={{ width: "30rem", height: "30rem", bottom: "-14rem", [idx % 2 === 0 ? "left" : "right"]: "-8rem" } as CSSProperties}
           />
         </>
-      )}
+      ) : null}
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         {/* Oversized ghost chapter number */}
