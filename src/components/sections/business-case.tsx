@@ -1,4 +1,4 @@
-import { Download, Coins, Network, ReceiptText, Server, Users } from "lucide-react";
+import { Coins, Network, ReceiptText, Server, Users } from "lucide-react";
 import { Section, KeyTakeaway } from "@/components/section";
 import { Grid, PillarCard, Stat } from "@/components/sections/primitives";
 
@@ -296,25 +296,15 @@ export function BusinessCase() {
         </table>
       </div>
 
-      {/* Download + note */}
-      <div className="mt-8 flex flex-col gap-4 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <div className="text-sm font-semibold text-[var(--kc-paper)]">
-            Source model — Bitexen MOSO Business Case (v2)
-          </div>
-          <p className="mt-1 text-sm text-[var(--kc-paper)]/65">
-            Illustrative model for discussion. Figures require validation against
-            Kaizer Chiefs supporter data before any commercial commitment.
-          </p>
+      {/* Source note */}
+      <div className="mt-8 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
+        <div className="text-sm font-semibold text-[var(--kc-paper)]">
+          Source model — Bitexen MOSO Business Case (v2)
         </div>
-        <a
-          href="/documents/bitexen-moso-business-case-v2.xlsx"
-          download
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--kc-gold)] px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-[var(--kc-black)] transition hover:bg-[var(--kc-gold-deep)]"
-        >
-          <Download className="size-4" />
-          Download model (XLSX)
-        </a>
+        <p className="mt-1 text-sm text-[var(--kc-paper)]/65">
+          Illustrative model for discussion. Figures require validation against
+          Kaizer Chiefs supporter data before any commercial commitment.
+        </p>
       </div>
 
       <KeyTakeaway>

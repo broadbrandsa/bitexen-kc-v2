@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDown, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -79,15 +78,6 @@ export function Header() {
             Conclusion
           </a>
         </div>
-
-        <Button
-          onClick={() => typeof window !== "undefined" && window.print()}
-          size="sm"
-          className="gap-2"
-        >
-          <Download className="size-4" />
-          Download PDF
-        </Button>
       </div>
     </header>
   );

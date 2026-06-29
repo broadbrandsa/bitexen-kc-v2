@@ -22,7 +22,7 @@ Rendered in order on the home page (see `src/data/sections.ts`):
 10. **New Revenue Streams** — opportunity/benefit table + commercial flywheel.
 11. **Value for Everyone** — stakeholder benefits (commercial, supporters, sponsors, club).
 12. **The Growth Engine** — the value flywheel.
-13. **The Business Case** — the MOSO 12-month model: KPIs, P&L chart, assumptions, milestone table, downloadable XLSX.
+13. **The Business Case** — the MOSO 12-month model: KPIs, P&L chart, assumptions and milestone table.
 14. **Building Long-Term Value** — lessons learned + our approach.
 15. **Bringing It to Life** — matchday, rewards, community, sponsor experiences.
 16. **Beyond Fan Engagement** — club growth, exclusive access, recognition, future.
@@ -35,20 +35,19 @@ Rendered in order on the home page (see `src/data/sections.ts`):
 
 ## Navigation & UX
 
-- Sticky header with a chapter/contents dropdown and "Download PDF" (print).
+- Sticky header with a chapter/contents dropdown.
 - Hover-to-expand left side-rail with active-section tracking.
 - Top reading-progress bar.
 - Lock screen (access code **1970**).
-- Print/PDF stylesheet for a clean A4 export.
 
 ## Excluded (out of scope)
 
 - Authentication beyond the static lock screen.
 - CMS / dynamic content — content is hard-coded in section components.
 - Forms, lead capture, or backend services.
-- Live/connected data feeds or interactive financial-model calculators (the Business Case shows a fixed, pre-computed model with a downloadable source workbook).
+- Live/connected data feeds or interactive financial-model calculators (the Business Case shows a fixed, pre-computed model).
 - Multi-language support.
-- A full annex / document library (the only downloadable asset is the Business Case workbook).
+- Downloadable assets — no annex, document library, PDF export or source-file downloads.
 
 ## Launch milestones
 

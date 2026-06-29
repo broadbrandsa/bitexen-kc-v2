@@ -22,8 +22,7 @@ Candidate events once analytics is enabled:
 | `unlock_failed`    | Incorrect access code entered                       |
 | `section_view`     | A section scrolls into view (IntersectionObserver)  |
 | `nav_click`        | Header dropdown or side-rail link clicked           |
-| `cta_click`        | Hero CTA ("Explore the vision" / "Discussion")      |
-| `download_pdf`     | "Download PDF" (print) button clicked               |
+| `cta_click`        | Hero CTA ("Explore the proposal" / "Let's build it together") |
 
 Implementation note: the side-rail and reading-progress already use scroll/
 IntersectionObserver logic that `section_view` could hook into.
@@ -45,9 +44,8 @@ IntersectionObserver logic that `section_view` could hook into.
 
 Primary "conversions" for a proposal site are engagement signals, not purchases:
 
-- **Engaged read:** reached the **Discussion** section (`#discussion` in view).
+- **Engaged read:** reached the **Conclusion** section (`#conclusion` in view).
 - **Full scroll:** reading-progress reaches ~100%.
-- **PDF export:** `download_pdf` fired.
 - **Return visit:** unlocked session (localStorage `bitexen_kc_v2_unlocked`).
 
 Define exact thresholds with stakeholders before instrumenting.
