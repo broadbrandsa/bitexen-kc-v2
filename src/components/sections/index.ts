@@ -13,6 +13,7 @@ export {
   GrowthEngine,
   LongTermValue,
 } from "@/components/sections/commercial-group";
+export { BusinessCase } from "@/components/sections/business-case";
 export { Experiences, Beyond } from "@/components/sections/experience-group";
 export {
   Sponsorship,
