@@ -1,6 +1,7 @@
 import { Building2, Megaphone, TrendingUp, Users } from "lucide-react";
 import { Section, KeyTakeaway } from "@/components/section";
-import { FlowChain, Grid, PillarCard, SimpleList } from "@/components/sections/primitives";
+import { Grid, PillarCard, SimpleList } from "@/components/sections/primitives";
+import { Flywheel } from "@/components/charts/flywheel";
 
 const REVENUE_ROWS: { opportunity: string; benefit: string }[] = [
   {
@@ -63,18 +64,18 @@ export function Revenue() {
         </table>
       </div>
 
-      <div className="mt-12">
-        <h3 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+      <div className="mt-14">
+        <h3 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
           The commercial flywheel
         </h3>
-        <FlowChain
-          loop
-          steps={[
-            { label: "Supporters join" },
-            { label: "Participation grows" },
-            { label: "Sponsor value increases" },
-            { label: "Commercial revenue grows" },
-            { label: "Rewards expand" },
+        <Flywheel
+          center="Commercial flywheel"
+          nodes={[
+            "Supporters join",
+            "Participation grows",
+            "Sponsor value increases",
+            "Commercial revenue grows",
+            "Rewards expand",
           ]}
         />
       </div>
@@ -134,15 +135,32 @@ export function GrowthEngine() {
       title="The value flywheel"
       intro="As the supporter experience improves, participation increases. Greater participation attracts sponsors, creates new commercial opportunities, and allows continued investment back into the ecosystem."
     >
-      <FlowChain
-        loop
-        steps={[
-          { label: "Better supporter experiences", sub: "Rewards · experiences · utility · loyalty" },
-          { label: "Greater supporter participation", sub: "Daily engagement · stronger community" },
-          { label: "More commercial opportunities", sub: "Sponsor activation · new revenue streams" },
-          { label: "More investment into the ecosystem", sub: "Better rewards · new features" },
+      <Flywheel
+        center="Value flywheel"
+        nodes={[
+          "Better supporter experiences",
+          "Greater supporter participation",
+          "More commercial opportunities",
+          "More investment into the ecosystem",
         ]}
       />
+
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { n: "01", d: "Rewards · experiences · utility · loyalty" },
+          { n: "02", d: "Daily engagement · stronger community" },
+          { n: "03", d: "Sponsor activation · new revenue streams" },
+          { n: "04", d: "Better rewards · new features" },
+        ].map((item) => (
+          <div
+            key={item.n}
+            className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-4"
+          >
+            <span className="font-mono text-[11px] font-bold text-[var(--kc-gold)]">{item.n}</span>
+            <p className="mt-1.5 text-sm text-[var(--kc-paper)]/75">{item.d}</p>
+          </div>
+        ))}
+      </div>
 
       <KeyTakeaway>
         The ecosystem grows by continuously reinvesting value back into the supporter

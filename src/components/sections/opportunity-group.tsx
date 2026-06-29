@@ -1,6 +1,7 @@
 import { Eye, Hand, Users } from "lucide-react";
 import { Section, KeyTakeaway } from "@/components/section";
 import { Grid, PillarCard, SimpleList, Stat } from "@/components/sections/primitives";
+import { Donut } from "@/components/charts/donut";
 
 export function Spectatorship() {
   return (
@@ -95,25 +96,39 @@ export function WhyKaizerChiefs() {
       eyebrow="Why Kaizer Chiefs"
       title="The foundations are already in place"
       intro="Kaizer Chiefs already possesses the foundations required to build one of Africa's leading digital supporter ecosystems."
+      image={{
+        src: "/images/abigail-keenan-8-s5QuUBtyM-unsplash.jpg",
+        alt: "Players on a floodlit pitch at night",
+        position: "center 40%",
+      }}
     >
-      <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
-        <Stat value="17M" label="Supporters" />
-        <Stat value="75%" label="Aged 16–35" />
-        <Stat value="#1" label="Of Africa's strongest sporting brands" />
-      </div>
-
-      <div className="mt-8 max-w-2xl">
-        <h3 className="text-lg font-semibold text-[var(--kc-paper)]">Existing strengths</h3>
-        <div className="mt-4">
-          <SimpleList
-            items={[
-              "National and regional reach",
-              "Existing commercial partnerships",
-              "Master App in development",
-              "Financial services strategy",
-            ]}
-          />
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-start">
+        <div className="lg:col-span-2">
+          <div className="grid grid-cols-2 gap-5">
+            <Stat value="17M" label="Supporters" />
+            <Stat value="#1" label="Of Africa's strongest sporting brands" />
+          </div>
+          <div className="mt-6">
+            <h3 className="text-lg font-semibold text-[var(--kc-paper)]">Existing strengths</h3>
+            <div className="mt-4">
+              <SimpleList
+                items={[
+                  "National and regional reach",
+                  "Existing commercial partnerships",
+                  "Master App in development",
+                  "Financial services strategy",
+                ]}
+              />
+            </div>
+          </div>
         </div>
+
+        <Donut
+          value={75}
+          centerValue="75%"
+          centerLabel="Aged 16–35"
+          caption="A predominantly young, digital-native supporter base."
+        />
       </div>
 
       <KeyTakeaway>

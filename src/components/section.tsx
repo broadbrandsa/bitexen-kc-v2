@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { getSectionPosition } from "@/data/sections";
 import { Reveal } from "@/components/reveal";
@@ -21,6 +22,7 @@ export function Section({
   intro,
   children,
   className,
+  image,
 }: {
   id?: string;
   eyebrow: string;
@@ -28,26 +30,51 @@ export function Section({
   intro?: ReactNode;
   children: ReactNode;
   className?: string;
+  /** Optional background photo (sits behind a dark overlay for legibility). */
+  image?: { src: string; alt: string; position?: string };
 }) {
   const pos = id ? getSectionPosition(id) : null;
 
   const tone =
-    id && FEATURE_IDS.has(id)
-      ? "section-feature"
-      : pos && pos.index % 2 === 1
-        ? "section-muted"
-        : "";
+    image
+      ? ""
+      : id && FEATURE_IDS.has(id)
+        ? "section-feature"
+        : pos && pos.index % 2 === 1
+          ? "section-muted"
+          : "";
 
   return (
     <section
       id={id}
       className={cn(
-        "scroll-mt-24 border-b border-[var(--kc-line)] py-20 md:py-28",
+        "relative scroll-mt-24 overflow-hidden border-b border-[var(--kc-line)] py-20 md:py-28",
         tone,
         className,
       )}
     >
-      <div className="mx-auto max-w-7xl px-6">
+      {image ? (
+        <>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: image.position ?? "center" }}
+          />
+          {/* Dark overlay for text legibility (WCAG AA) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(21,23,26,0.92) 0%, rgba(21,23,26,0.80) 45%, rgba(10,10,10,0.92) 100%)",
+            }}
+          />
+        </>
+      ) : null}
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal>
           {pos ? (
             <div className="mb-8 flex items-baseline gap-4">

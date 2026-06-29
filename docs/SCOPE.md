@@ -31,8 +31,7 @@ Rendered in order on the home page (see `src/data/sections.ts`):
 18. **How Bitexen Enables It** — the underlying infrastructure.
 19. **Why Bitexen** — KC × Bitexen capability comparison.
 20. **The Bigger Vision** — the long-term roadmap.
-21. **Discussion** — questions for the team.
-22. **Conclusion** — synthesis + "Let's build it together" / working-session next step.
+21. **Conclusion** — synthesis + "Let's build it together" / working-session next step.
 
 ## Navigation & UX
 

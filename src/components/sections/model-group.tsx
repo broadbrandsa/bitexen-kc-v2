@@ -1,6 +1,7 @@
 import { Coins, Rocket } from "lucide-react";
 import { Section, KeyTakeaway } from "@/components/section";
-import { FlowChain, SimpleList } from "@/components/sections/primitives";
+import { SimpleList } from "@/components/sections/primitives";
+import { Flywheel } from "@/components/charts/flywheel";
 
 export function FanEconomy() {
   return (
@@ -10,16 +11,16 @@ export function FanEconomy() {
       title="What is a digital fan economy?"
       intro="A connected ecosystem where supporters participate rather than simply consume."
     >
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-        <FlowChain
-          loop
-          steps={[
-            { label: "Supporters" },
-            { label: "Participation" },
-            { label: "Rewards" },
-            { label: "Sponsors" },
-            { label: "Commerce" },
-            { label: "More participation" },
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <Flywheel
+          center="The fan economy"
+          nodes={[
+            "Supporters",
+            "Participation",
+            "Rewards",
+            "Sponsors",
+            "Commerce",
+            "More participation",
           ]}
         />
 

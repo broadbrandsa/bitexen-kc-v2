@@ -1,4 +1,3 @@
-import { MessageCircleQuestion } from "lucide-react";
 import { Section, KeyTakeaway } from "@/components/section";
 import { FlowChain, SimpleList } from "@/components/sections/primitives";
 
@@ -105,6 +104,11 @@ export function Vision() {
       eyebrow="The Bigger Vision"
       title="Beyond a token — a digital economy"
       intro="This is not about launching a token. It is about creating the digital economy around one of Africa's largest sporting communities."
+      image={{
+        src: "/images/timothy-tan-PAe2UhGo-S4-unsplash.jpg",
+        alt: "Aerial view of a football pitch",
+        position: "center",
+      }}
     >
       <FlowChain
         steps={[
@@ -121,42 +125,6 @@ export function Vision() {
         This is not about launching a token. It is about creating the digital economy
         around one of Africa&apos;s largest sporting communities.
       </KeyTakeaway>
-    </Section>
-  );
-}
-
-const QUESTIONS = [
-  "Does this align with your long-term vision for Kaizer Chiefs?",
-  "Which commercial opportunities excite you the most?",
-  "How do you see the Master App fitting into this ecosystem?",
-  "What role should supporters play in shaping it?",
-  "What does success look like five years from now?",
-];
-
-export function Discussion() {
-  return (
-    <Section id="discussion" eyebrow="Discussion" title="Questions for the team">
-      <div className="space-y-4">
-        {QUESTIONS.map((q, i) => (
-          <div
-            key={q}
-            className="flex items-start gap-4 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6"
-          >
-            <span className="font-mono text-2xl font-bold tabular-nums text-[var(--kc-gold)]">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <p className="pt-1 text-lg text-[var(--kc-paper)]">{q}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-12 flex items-center gap-4 rounded-xl border border-[var(--bx-blue)]/30 bg-[var(--bx-blue)]/[0.06] p-6">
-        <MessageCircleQuestion className="size-7 shrink-0 text-[var(--bx-blue-soft)]" />
-        <p className="text-lg font-medium text-[var(--kc-paper)]">
-          These questions frame the working session ahead — let&apos;s shape the answers
-          together.
-        </p>
-      </div>
     </Section>
   );
 }

@@ -24,7 +24,6 @@ import {
   BitexenEnables,
   WhyBitexen,
   Vision,
-  Discussion,
   Conclusion,
 } from "@/components/sections";
 
@@ -65,7 +64,6 @@ export default function Home() {
       <BitexenEnables />
       <WhyBitexen />
       <Vision />
-      <Discussion />
       <Conclusion />
       <Footer />
     </main>

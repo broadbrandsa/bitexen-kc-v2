@@ -19,7 +19,6 @@ export {
   Sponsorship,
   WhyBitexen,
   Vision,
-  Discussion,
 } from "@/components/sections/partnership-group";
 export { BitexenEnables } from "@/components/sections/bitexen-enables";
 export { Conclusion } from "@/components/sections/conclusion";

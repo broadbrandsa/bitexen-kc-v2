@@ -37,7 +37,6 @@ export const SECTIONS: SectionMeta[] = [
   { id: "bitexen-enables", label: "How Bitexen Enables It" },
   { id: "why-bitexen", label: "Why Bitexen" },
   { id: "vision", label: "The Bigger Vision" },
-  { id: "discussion", label: "Discussion" },
   { id: "conclusion", label: "Conclusion" },
 ];
 
@@ -78,7 +77,6 @@ export const CHAPTERS: ChapterMeta[] = [
       "bitexen-enables",
       "why-bitexen",
       "vision",
-      "discussion",
       "conclusion",
     ],
   },

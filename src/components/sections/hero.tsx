@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { ChiefMark } from "@/components/chief-mark";
 import { BitexenMark, DsgMark } from "@/components/brand-marks";
@@ -5,8 +6,26 @@ import { BitexenMark, DsgMark } from "@/components/brand-marks";
 export function Hero() {
   return (
     <section className="bg-stadium relative overflow-hidden">
-      <div className="bg-grid absolute inset-0 opacity-40" aria-hidden="true" />
-      <div className="hero-stagger relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-6 py-24">
+      {/* Stadium backdrop */}
+      <Image
+        src="/images/alex-azabache-1cPWeb3Ud30-unsplash.jpg"
+        alt="Packed football stadium at night"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        style={{ objectPosition: "center 30%" }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(21,23,26,0.86) 0%, rgba(21,23,26,0.78) 40%, rgba(10,10,10,0.94) 100%)",
+        }}
+        aria-hidden="true"
+      />
+      <div className="bg-grid absolute inset-0 opacity-30" aria-hidden="true" />
+      <div className="hero-stagger relative z-10 mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-6 py-24">
         {/* Partnership lockup — Bitexen-led, prepared for Kaizer Chiefs */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-4">
           <BitexenMark className="h-7 w-auto md:h-8" />

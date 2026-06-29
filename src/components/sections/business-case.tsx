@@ -119,6 +119,70 @@ function PnlChart() {
   );
 }
 
+/** Revenue vs total cost across the 12 months, with the profitability crossover. */
+function RevenueCostChart() {
+  const W = 880;
+  const H = 300;
+  const mL = 12;
+  const mR = 12;
+  const mT = 16;
+  const mB = 34;
+  const plotW = W - mL - mR;
+  const plotH = H - mT - mB;
+
+  const vmax = 2_100_000;
+  const n = MONTHLY.length;
+  const x = (i: number) => mL + (plotW * i) / (n - 1);
+  const y = (v: number) => mT + plotH * (1 - v / vmax);
+
+  const line = (key: "revenue" | "cost") =>
+    MONTHLY.map((d, i) => `${x(i)},${y(d[key])}`).join(" ");
+  const area =
+    `${x(0)},${y(0)} ` +
+    MONTHLY.map((d, i) => `${x(i)},${y(d.revenue)}`).join(" ") +
+    ` ${x(n - 1)},${y(0)}`;
+
+  const crossoverX = x(5); // month 6
+
+  return (
+    <figure className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-5">
+      <figcaption className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+          Revenue vs total cost · ZAR
+        </span>
+        <span className="flex items-center gap-4 text-[11px] text-[var(--kc-paper)]/70">
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-0.5 w-4 rounded bg-[var(--kc-gold)]" /> Revenue
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-0.5 w-4 rounded" style={{ background: "var(--bx-blue-soft)" }} /> Total cost
+          </span>
+        </span>
+      </figcaption>
+
+      <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label="Revenue overtakes total cost in month six and accelerates away">
+        <polygon points={area} fill="var(--kc-gold)" opacity={0.1} />
+        <line x1={crossoverX} x2={crossoverX} y1={mT} y2={H - mB} stroke="var(--kc-gold)" strokeWidth={1} strokeDasharray="3 4" opacity={0.5} />
+        <text x={crossoverX + 4} y={mT + 10} fill="var(--kc-gold)" fontSize="11" fontWeight="600">
+          Revenue &gt; cost · M6
+        </text>
+
+        <polyline points={line("cost")} fill="none" stroke="var(--bx-blue-soft)" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
+        <polyline points={line("revenue")} fill="none" stroke="var(--kc-gold)" strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
+
+        {MONTHLY.map((d, i) => (
+          <text key={d.m} x={x(i)} y={H - mB + 18} textAnchor="middle" fill="var(--kc-mute)" fontSize="11">
+            M{d.m}
+          </text>
+        ))}
+        <text x={x(n - 1)} y={y(1_995_000) - 8} textAnchor="end" fill="var(--kc-gold)" fontSize="12" fontWeight="600">
+          {zar(1_995_000)}
+        </text>
+      </svg>
+    </figure>
+  );
+}
+
 export function BusinessCase() {
   return (
     <Section
@@ -135,8 +199,9 @@ export function BusinessCase() {
         <Stat value="Month 6" label="Breakeven — P&L turns positive" />
       </div>
 
-      {/* Trajectory chart */}
-      <div className="mt-8">
+      {/* Trajectory charts */}
+      <div className="mt-8 grid grid-cols-1 gap-6">
+        <RevenueCostChart />
         <PnlChart />
       </div>
 

@@ -9,6 +9,11 @@ export function Conclusion() {
       eyebrow="Conclusion"
       title="Kaizer Chiefs already has the audience"
       intro="The opportunity is to build the digital economy around it. The combination of supporter scale, youth engagement, participation, rewards, sponsorship and tokenised infrastructure creates the foundation for a new category of supporter ecosystem in Africa."
+      image={{
+        src: "/images/alex-azabache-1cPWeb3Ud30-unsplash.jpg",
+        alt: "Packed football stadium at night",
+        position: "center",
+      }}
     >
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>

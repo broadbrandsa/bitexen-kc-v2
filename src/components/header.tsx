@@ -73,10 +73,10 @@ export function Header() {
           </DropdownMenu>
 
           <a
-            href="#discussion"
+            href="#conclusion"
             className="text-[12px] font-medium uppercase tracking-wider text-[var(--kc-paper)]/70 transition hover:text-[var(--kc-gold)]"
           >
-            Discussion
+            Conclusion
           </a>
         </div>
 
