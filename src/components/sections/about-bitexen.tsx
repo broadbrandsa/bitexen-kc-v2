@@ -34,7 +34,7 @@ export function AboutBitexen() {
       <div className="mt-8 flex items-center gap-3 rounded-xl border border-[var(--bx-blue)]/30 bg-[var(--bx-blue)]/[0.06] p-6">
         <Wallet className="size-6 shrink-0 text-[var(--bx-blue-soft)]" />
         <p className="text-[15px] text-[var(--kc-paper)]/85">
-          Secure infrastructure, proven at scale — built to power digital communities.
+          Secure digital infrastructure, built across 80+ successful tokenisation projects.
         </p>
       </div>
 

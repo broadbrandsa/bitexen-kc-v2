@@ -189,7 +189,7 @@ export function BusinessCase() {
       id="business-case"
       eyebrow="Business Case"
       title="The unit economics at scale"
-      intro="A worked 12-month model — the Bitexen MOSO digital-wallet business case — demonstrating the transaction-led economics of a Bitexen-powered wallet reaching mass scale. The same economic engine underpins a Kaizer Chiefs supporter wallet."
+      intro="A worked 12-month model — the Bitexen MOSO digital-wallet business case — showing the transaction-led unit economics a Bitexen-powered digital wallet can reach at scale. Included as an indicative reference; the figures are not Kaizer Chiefs projections."
     >
       {/* Headline KPIs */}
       <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -242,8 +242,8 @@ export function BusinessCase() {
           <PillarCard
             icon={Coins}
             accent="blue"
-            title="FX assumption"
-            items={["ZAR / USD at 16.3", "~R2.0M monthly revenue at Month 12", "~R3.1M Year-1 net contribution"]}
+            title="FX & Year-1 outcomes"
+            items={["ZAR / USD at 16.3", "~R2.0M monthly revenue at Month 12", "~R3.1M Year-1 net P&L"]}
           />
         </Grid>
       </div>
@@ -318,8 +318,8 @@ export function BusinessCase() {
       </div>
 
       <KeyTakeaway>
-        Transaction-led economics reach breakeven within six months and scale into a
-        profitable engine — the financial foundation beneath the supporter ecosystem.
+        In this model, transaction-led economics reach breakeven within six months and
+        scale into a profitable engine inside the first year.
       </KeyTakeaway>
     </Section>
   );

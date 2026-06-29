@@ -104,15 +104,15 @@ export function WhyKaizerChiefs() {
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-start">
         <div className="lg:col-span-2">
-          <div className="grid grid-cols-2 gap-5">
+          <div className="max-w-xs">
             <Stat value="17M" label="Supporters" />
-            <Stat value="#1" label="Of Africa's strongest sporting brands" />
           </div>
           <div className="mt-6">
             <h3 className="text-lg font-semibold text-[var(--kc-paper)]">Existing strengths</h3>
             <div className="mt-4">
               <SimpleList
                 items={[
+                  "One of Africa's strongest sporting brands",
                   "National and regional reach",
                   "Existing commercial partnerships",
                   "Master App in development",
@@ -127,7 +127,7 @@ export function WhyKaizerChiefs() {
           value={75}
           centerValue="75%"
           centerLabel="Aged 16–35"
-          caption="A predominantly young, digital-native supporter base."
+          caption="A predominantly young supporter base."
         />
       </div>
 
