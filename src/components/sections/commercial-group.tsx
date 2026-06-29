@@ -152,12 +152,9 @@ export function GrowthEngine() {
           { n: "03", d: "Sponsor activation · new revenue streams" },
           { n: "04", d: "Better rewards · new features" },
         ].map((item) => (
-          <div
-            key={item.n}
-            className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-4"
-          >
-            <span className="font-mono text-[11px] font-bold text-[var(--kc-gold)]">{item.n}</span>
-            <p className="mt-1.5 text-sm text-[var(--kc-paper)]/75">{item.d}</p>
+          <div key={item.n} className="kc-card kc-accent p-5">
+            <span className="font-mono text-sm font-bold text-[var(--kc-gold)]">{item.n}</span>
+            <p className="mt-2 text-sm text-[var(--kc-paper)]/75">{item.d}</p>
           </div>
         ))}
       </div>

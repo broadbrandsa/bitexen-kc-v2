@@ -1,6 +1,7 @@
-import { Eye, Hand, Users } from "lucide-react";
+import { ArrowRight, Eye, Hand, Users } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Section, KeyTakeaway } from "@/components/section";
-import { Grid, PillarCard, SimpleList, Stat } from "@/components/sections/primitives";
+import { SimpleList, Stat } from "@/components/sections/primitives";
 import { Donut } from "@/components/charts/donut";
 
 export function Spectatorship() {
@@ -11,26 +12,30 @@ export function Spectatorship() {
       title="The spectatorship of sport is changing"
       intro="The relationship between clubs and supporters is changing — from watching, to engaging, to participating."
     >
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {[
           { when: "Yesterday", verb: "Supporters watched", icon: Eye },
           { when: "Today", verb: "Supporters engage", icon: Hand },
           { when: "Tomorrow", verb: "Supporters participate", icon: Users },
         ].map(({ when, verb, icon: Icon }, i) => (
-          <div
-            key={when}
-            className={
-              "rounded-xl border p-6 " +
-              (i === 2
-                ? "border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/[0.06]"
-                : "border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50")
-            }
-          >
-            <Icon className={"size-6 " + (i === 2 ? "text-[var(--kc-gold)]" : "text-[var(--kc-mute)]")} />
-            <div className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
-              {when}
+          <div key={when} className="relative">
+            <div
+              className={cn(
+                "kc-card flex h-full flex-col p-6",
+                i === 2 ? "kc-card-gold kc-accent" : "",
+              )}
+            >
+              <div className={cn("kc-icon-tile", i !== 2 && "opacity-80")}>
+                <Icon className="size-5" />
+              </div>
+              <div className="mt-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+                {when}
+              </div>
+              <div className="mt-1 text-2xl font-semibold text-[var(--kc-paper)]">{verb}</div>
             </div>
-            <div className="mt-1 text-xl font-semibold text-[var(--kc-paper)]">{verb}</div>
+            {i < 2 ? (
+              <ArrowRight className="absolute -right-[1.35rem] top-[2.75rem] z-10 hidden size-6 text-[var(--kc-gold)]/70 md:block" />
+            ) : null}
           </div>
         ))}
       </div>
@@ -63,23 +68,39 @@ export function Opportunity() {
       title="Kaizer Chiefs already has the audience"
       intro="The opportunity is to build the digital economy around it."
     >
-      <Grid cols={2}>
-        <PillarCard
-          title="Today's commercial model"
-          items={["Tickets", "Merchandise", "Sponsorships", "Broadcasting"]}
-        />
-        <PillarCard
-          accent="blue"
-          title="Tomorrow's model adds"
-          items={[
-            "Digital participation",
-            "Rewards",
-            "Digital commerce",
-            "Sponsor activation",
-            "Tokenised engagement",
-          ]}
-        />
-      </Grid>
+      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1fr_auto_1fr]">
+        <div className="kc-card flex flex-col p-6">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+            Today&apos;s commercial model
+          </div>
+          <div className="mt-5">
+            <SimpleList items={["Tickets", "Merchandise", "Sponsorships", "Broadcasting"]} />
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center">
+          <div className="kc-icon-tile rotate-90 lg:rotate-0">
+            <ArrowRight className="size-5" />
+          </div>
+        </div>
+
+        <div className="kc-card kc-card-gold kc-accent flex flex-col p-6">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-gold)]">
+            Tomorrow&apos;s model adds
+          </div>
+          <div className="mt-5">
+            <SimpleList
+              items={[
+                "Digital participation",
+                "Rewards",
+                "Digital commerce",
+                "Sponsor activation",
+                "Tokenised engagement",
+              ]}
+            />
+          </div>
+        </div>
+      </div>
 
       <KeyTakeaway>
         The next opportunity isn&apos;t finding more supporters. It&apos;s creating more

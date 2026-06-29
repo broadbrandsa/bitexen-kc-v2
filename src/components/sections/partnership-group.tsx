@@ -1,5 +1,6 @@
 import { Section, KeyTakeaway } from "@/components/section";
-import { FlowChain, SimpleList } from "@/components/sections/primitives";
+import { SimpleList } from "@/components/sections/primitives";
+import { Timeline } from "@/components/charts/timeline";
 
 export function Sponsorship() {
   return (
@@ -30,7 +31,7 @@ export function Sponsorship() {
             {["Kaizer Chiefs", "Supporters", "Sponsors", "Bitexen"].map((p) => (
               <div
                 key={p}
-                className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 px-4 py-5 text-center text-base font-semibold text-[var(--kc-paper)]"
+                className="kc-card kc-accent px-4 py-5 text-center text-base font-semibold text-[var(--kc-paper)]"
               >
                 {p}
               </div>
@@ -110,14 +111,14 @@ export function Vision() {
         position: "center",
       }}
     >
-      <FlowChain
+      <Timeline
         steps={[
-          { label: "Supporter engagement" },
-          { label: "Digital rewards" },
-          { label: "Digital commerce" },
-          { label: "Financial services" },
-          { label: "Regional expansion" },
-          { label: "Africa's leading digital fan economy" },
+          "Supporter engagement",
+          "Digital rewards",
+          "Digital commerce",
+          "Financial services",
+          "Regional expansion",
+          "Africa's leading digital fan economy",
         ]}
       />
 

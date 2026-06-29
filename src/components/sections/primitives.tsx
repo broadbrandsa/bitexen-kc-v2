@@ -22,12 +22,16 @@ export function PillarCard({
   description?: string;
 }) {
   const accentText = accent === "blue" ? "text-[var(--bx-blue-soft)]" : "text-[var(--kc-gold)]";
-  const accentBg = accent === "blue" ? "bg-[var(--bx-blue)]/12" : "bg-[var(--kc-gold)]/12";
   return (
-    <div className="flex h-full flex-col rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 backdrop-blur transition duration-200 ease-out hover:-translate-y-1 hover:border-[var(--kc-gold)]/40 hover:shadow-lg hover:shadow-black/25">
+    <div
+      className={cn(
+        "kc-card group flex h-full flex-col p-6 transition duration-200 ease-out hover:-translate-y-1.5",
+        accent === "blue" ? "kc-accent-blue" : "kc-accent",
+      )}
+    >
       {Icon ? (
-        <div className={cn("mb-4 inline-flex size-10 items-center justify-center rounded-lg", accentBg)}>
-          <Icon className={cn("size-5", accentText)} />
+        <div className={cn("kc-icon-tile mb-4", accent === "blue" && "kc-icon-tile-blue")}>
+          <Icon className="size-5" />
         </div>
       ) : null}
       <h3 className="text-lg font-semibold tracking-tight text-[var(--kc-paper)]">{title}</h3>
@@ -93,8 +97,8 @@ export function FlowChain({
 /** Stat — a large value with a small caption, for headline metrics. */
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 text-center transition duration-200 ease-out hover:-translate-y-1 hover:border-[var(--kc-gold)]/40 hover:shadow-lg hover:shadow-black/25">
-      <div className="text-4xl font-bold tracking-tight text-[var(--kc-gold)] md:text-5xl">{value}</div>
+    <div className="kc-card kc-card-gold kc-accent flex h-full flex-col justify-center p-6 text-center transition duration-200 ease-out hover:-translate-y-1.5">
+      <div className="text-gradient-gold text-4xl font-bold tracking-tight md:text-5xl">{value}</div>
       <div className="mt-2 text-sm text-[var(--kc-paper)]/70">{label}</div>
     </div>
   );

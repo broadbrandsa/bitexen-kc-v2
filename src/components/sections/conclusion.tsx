@@ -31,7 +31,7 @@ export function Conclusion() {
             />
           </div>
         </div>
-        <div className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6">
+        <div className="kc-card kc-accent p-6">
           <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-gold)]">
             The framing
           </div>

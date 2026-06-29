@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type CSSProperties, type ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { getSectionPosition } from "@/data/sections";
@@ -34,6 +34,7 @@ export function Section({
   image?: { src: string; alt: string; position?: string };
 }) {
   const pos = id ? getSectionPosition(id) : null;
+  const idx = pos?.index ?? 0;
 
   const tone =
     image
@@ -72,38 +73,62 @@ export function Section({
             }}
           />
         </>
-      ) : null}
+      ) : (
+        /* Ambient glow blobs — alternate sides/colours by index for variety */
+        <>
+          <span
+            aria-hidden="true"
+            className={cn("glow", idx % 2 === 0 ? "glow-gold" : "glow-blue")}
+            style={{ width: "38rem", height: "38rem", top: "-13rem", [idx % 2 === 0 ? "right" : "left"]: "-9rem" } as CSSProperties}
+          />
+          <span
+            aria-hidden="true"
+            className={cn("glow", idx % 2 === 0 ? "glow-blue" : "glow-gold")}
+            style={{ width: "30rem", height: "30rem", bottom: "-14rem", [idx % 2 === 0 ? "left" : "right"]: "-8rem" } as CSSProperties}
+          />
+        </>
+      )}
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <Reveal>
-          {pos ? (
-            <div className="mb-8 flex items-baseline gap-4">
-              <span className="font-mono text-2xl font-bold tabular-nums leading-none text-[var(--kc-gold)]/80 md:text-3xl">
-                {String(pos.index + 1).padStart(2, "0")}
-              </span>
-              <span className="font-mono text-[16px] uppercase tracking-[0.32em] text-[var(--kc-mute)]">
-                / {String(pos.total).padStart(2, "0")}
-              </span>
-              <span className="h-px flex-1 translate-y-[-4px] bg-gradient-to-r from-[var(--kc-gold)]/40 via-[var(--kc-line)] to-transparent" />
-            </div>
-          ) : null}
+        {/* Oversized ghost chapter number */}
+        {pos && !image ? (
+          <span aria-hidden="true" className="ghost-number" style={{ fontSize: "clamp(80px, 17vw, 210px)" }}>
+            {String(pos.index + 1).padStart(2, "0")}
+          </span>
+        ) : null}
 
-          <div className="max-w-3xl">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-              {eyebrow}
-            </div>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--kc-paper)] md:text-4xl">
-              {title}
-            </h2>
-            {intro ? (
-              <p className="mt-5 text-lg text-[var(--kc-paper)]/75">{intro}</p>
+        <div className="relative" style={{ zIndex: 1 }}>
+          <Reveal>
+            {pos ? (
+              <div className="mb-8 flex items-baseline gap-4">
+                <span className="font-mono text-2xl font-bold tabular-nums leading-none text-[var(--kc-gold)]/80 md:text-3xl">
+                  {String(pos.index + 1).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-[16px] uppercase tracking-[0.32em] text-[var(--kc-mute)]">
+                  / {String(pos.total).padStart(2, "0")}
+                </span>
+                <span className="h-px flex-1 translate-y-[-4px] bg-gradient-to-r from-[var(--kc-gold)]/40 via-[var(--kc-line)] to-transparent" />
+              </div>
             ) : null}
-          </div>
-        </Reveal>
 
-        <Reveal stagger className="mt-12">
-          {children}
-        </Reveal>
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--kc-gold)]/30 bg-[var(--kc-gold)]/[0.06] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-gold)]">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--kc-gold)]" aria-hidden="true" />
+                {eyebrow}
+              </span>
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-[var(--kc-paper)] md:text-4xl">
+                {title}
+              </h2>
+              {intro ? (
+                <p className="mt-5 text-lg text-[var(--kc-paper)]/75">{intro}</p>
+              ) : null}
+            </div>
+          </Reveal>
+
+          <Reveal stagger className="mt-12">
+            {children}
+          </Reveal>
+        </div>
       </div>
     </section>
   );

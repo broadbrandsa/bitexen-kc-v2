@@ -45,12 +45,12 @@ export function EcosystemValue() {
         {LAYERS.map(({ n, title, icon: Icon, items, note }) => (
           <div
             key={n}
-            className="flex h-full flex-col rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 backdrop-blur transition hover:border-[var(--kc-gold)]/40"
+            className="kc-card kc-accent flex h-full flex-col p-6 transition duration-200 ease-out hover:-translate-y-1.5"
           >
             <div className="flex items-center gap-4">
-              <span className="font-mono text-3xl font-bold tabular-nums text-[var(--kc-gold)]/70">{n}</span>
-              <div className="inline-flex size-10 items-center justify-center rounded-lg bg-[var(--kc-gold)]/12">
-                <Icon className="size-5 text-[var(--kc-gold)]" />
+              <span className="font-mono text-3xl font-bold tabular-nums text-[var(--kc-gold)]/60">{n}</span>
+              <div className="kc-icon-tile">
+                <Icon className="size-5" />
               </div>
               <h3 className="text-lg font-semibold tracking-tight text-[var(--kc-paper)]">{title}</h3>
             </div>

@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 /**
  * Donut — a single-value ring chart for a headline percentage (e.g. "75% aged
  * 16–35"). The arc fills clockwise from the top.
@@ -21,9 +23,10 @@ export function Donut({
   const filled = (Math.min(100, Math.max(0, value)) / 100) * c;
 
   return (
-    <div className="flex flex-col items-center rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6 text-center">
+    <div className={cn("kc-card flex flex-col items-center p-6 text-center", accent === "blue" ? "kc-accent-blue" : "kc-accent")}>
       <div className="relative aspect-square w-40">
-        <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+        <span aria-hidden="true" className={cn("glow", accent === "blue" ? "glow-blue" : "glow-gold")} style={{ inset: "12%" }} />
+        <svg viewBox="0 0 100 100" className="relative h-full w-full -rotate-90">
           <circle cx="50" cy="50" r={r} fill="none" stroke="var(--kc-line)" strokeWidth="8" />
           <circle
             cx="50"

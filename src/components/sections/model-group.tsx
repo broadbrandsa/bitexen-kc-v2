@@ -54,9 +54,9 @@ export function Token() {
       title="The token is not the product — it powers the ecosystem"
       intro="Unlike traditional loyalty programmes, every interaction takes place within a single, connected digital economy."
     >
-      <div className="rounded-xl border border-[var(--bx-blue)]/30 bg-[var(--bx-blue)]/[0.05] p-8">
-        <div className="mb-6 inline-flex size-12 items-center justify-center rounded-lg bg-[var(--bx-blue)]/15">
-          <Coins className="size-6 text-[var(--bx-blue-soft)]" />
+      <div className="kc-card kc-card-blue kc-accent-blue p-8">
+        <div className="kc-icon-tile kc-icon-tile-blue mb-6 size-12">
+          <Coins className="size-6" />
         </div>
         <h3 className="text-lg font-semibold text-[var(--kc-paper)]">The token enables:</h3>
         <div className="mt-5 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
@@ -86,8 +86,8 @@ export function Launch() {
     >
       <div className="flex items-start gap-4">
         <div className="hidden shrink-0 sm:block">
-          <div className="inline-flex size-12 items-center justify-center rounded-lg bg-[var(--kc-gold)]/12">
-            <Rocket className="size-6 text-[var(--kc-gold)]" />
+          <div className="kc-icon-tile size-12">
+            <Rocket className="size-6" />
           </div>
         </div>
         <div className="max-w-2xl">

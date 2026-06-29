@@ -143,6 +143,121 @@
     radial-gradient(700px 420px at -5% 105%, rgba(47, 128, 237, 0.07), transparent 60%);
 }
 
+/* ============================================================================
+ * Depth system — dimensional surfaces, ambient glows, textures.
+ * Adds visual layering on the dark theme without relying on imagery.
+ * ============================================================================ */
+
+/* Dotted texture overlay (subtle) */
+.bg-dots {
+  background-image: radial-gradient(rgba(248, 246, 240, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Ambient glow blob — placed absolutely inside a relative parent */
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-gold {
+  background: radial-gradient(circle, rgba(224, 156, 42, 0.18), transparent 70%);
+}
+.glow-blue {
+  background: radial-gradient(circle, rgba(47, 128, 237, 0.16), transparent 70%);
+}
+
+/* Oversized "ghost" chapter number behind a heading */
+.ghost-number {
+  position: absolute;
+  top: -0.35em;
+  right: 0;
+  z-index: 0;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(224, 156, 42, 0.12);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Dimensional card surface — gradient + inset highlight + drop shadow */
+.kc-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--kc-line);
+  background:
+    radial-gradient(130% 100% at 50% 0%, rgba(248, 246, 240, 0.05), transparent 55%),
+    color-mix(in oklab, var(--kc-charcoal) 72%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(248, 246, 240, 0.05),
+    0 16px 36px -22px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+.kc-card-gold {
+  border-color: color-mix(in oklab, var(--kc-gold) 38%, var(--kc-line));
+  background:
+    radial-gradient(130% 100% at 50% 0%, rgba(224, 156, 42, 0.12), transparent 60%),
+    color-mix(in oklab, var(--kc-charcoal) 72%, transparent);
+}
+.kc-card-blue {
+  border-color: color-mix(in oklab, var(--bx-blue) 36%, var(--kc-line));
+  background:
+    radial-gradient(130% 100% at 50% 0%, rgba(47, 128, 237, 0.12), transparent 60%),
+    color-mix(in oklab, var(--kc-charcoal) 72%, transparent);
+}
+
+/* Top-edge accent bar on a card */
+.kc-accent::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--kc-gold), transparent);
+}
+.kc-accent-blue::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--bx-blue-soft), transparent);
+}
+
+/* Icon tile — gradient chip with ring */
+.kc-icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(150deg, rgba(224, 156, 42, 0.20), rgba(224, 156, 42, 0.05));
+  box-shadow: inset 0 0 0 1px rgba(224, 156, 42, 0.30);
+  color: var(--kc-gold);
+}
+.kc-icon-tile-blue {
+  background: linear-gradient(150deg, rgba(47, 128, 237, 0.22), rgba(47, 128, 237, 0.05));
+  box-shadow: inset 0 0 0 1px rgba(47, 128, 237, 0.30);
+  color: var(--bx-blue-soft);
+}
+
+/* Gradient text (gold) */
+.text-gradient-gold {
+  background: linear-gradient(120deg, var(--kc-gold-soft), var(--kc-gold) 55%, var(--kc-gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ── Interaction defaults ── */
 button:not(:disabled),
 a[href],

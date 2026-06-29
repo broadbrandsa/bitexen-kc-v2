@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 /**
  * Flywheel — a circular cycle diagram. Nodes are placed evenly around a dashed
@@ -44,6 +45,12 @@ export function Flywheel({
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-md">
+      {/* Soft centre glow for depth */}
+      <span
+        aria-hidden="true"
+        className={cn("glow", accent === "blue" ? "glow-blue" : "glow-gold")}
+        style={{ inset: "22%" }}
+      />
       {/* Ring + arrows */}
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" aria-hidden="true">
         <circle
