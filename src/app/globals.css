@@ -1,0 +1,220 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+
+  /* Kaizer Chiefs identity */
+  --kc-gold: #e09c2a;
+  --kc-gold-deep: #b87a14;
+  --kc-gold-soft: #fde2af;
+  --kc-black: #0a0a0a;
+  --kc-ink: #15171a;
+  --kc-charcoal: #1f2226;
+  --kc-line: #33363d;
+  --kc-mute: #6b6f78;
+  --kc-paper: #f8f6f0;
+
+  /* Bitexen accent — secondary partner identity */
+  --bx-blue: #2f80ed;
+  --bx-blue-soft: #7eb3ff;
+  --bx-cyan: #34d3c7;
+
+  /* shadcn neutral base — dark theme */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.92 0.18 95);
+  --primary-foreground: oklch(0.18 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.92 0.18 95);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.92 0.18 95);
+  --sidebar-primary-foreground: oklch(0.18 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+.dark { --background: oklch(0.145 0 0); --foreground: oklch(0.985 0 0); }
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-kc-gold: var(--kc-gold);
+  --color-kc-gold-deep: var(--kc-gold-deep);
+  --color-kc-gold-soft: var(--kc-gold-soft);
+  --color-kc-black: var(--kc-black);
+  --color-kc-ink: var(--kc-ink);
+  --color-kc-charcoal: var(--kc-charcoal);
+  --color-kc-line: var(--kc-line);
+  --color-kc-mute: var(--kc-mute);
+  --color-kc-paper: var(--kc-paper);
+
+  --color-bx-blue: var(--bx-blue);
+  --color-bx-blue-soft: var(--bx-blue-soft);
+  --color-bx-cyan: var(--bx-cyan);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  * { border-color: var(--border); }
+  html, body {
+    background: var(--kc-ink);
+    color: var(--kc-paper);
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.bg-stadium {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(245, 208, 0, 0.15), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(245, 208, 0, 0.08), transparent 60%),
+    linear-gradient(180deg, #15171a 0%, #0a0a0a 100%);
+}
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.bg-stripes {
+  background-image: repeating-linear-gradient(135deg,
+    rgba(245, 208, 0, 0.06) 0px,
+    rgba(245, 208, 0, 0.06) 2px,
+    transparent 2px,
+    transparent 12px);
+}
+
+@media print {
+  @page { size: A4; margin: 14mm 12mm; }
+  html, body {
+    background: #fff !important;
+    color: #15171a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print { display: none !important; }
+}
+
+/* ============================================================================
+ * Type scale — bumped by +5pt across every text-* utility.
+ * Default Tailwind v4 sizes are listed in the comments for reference.
+ * ============================================================================ */
+@theme {
+  /* text-xs    default 0.75rem  / 9pt   →  +5pt  → 14pt    */
+  --text-xs: 1.167rem;
+  --text-xs--line-height: 1.5;
+  /* text-sm    default 0.875rem / 10.5pt →  +5pt  → 15.5pt  */
+  --text-sm: 1.292rem;
+  --text-sm--line-height: 1.5;
+  /* text-base  default 1rem     / 12pt   →  +5pt  → 17pt    */
+  --text-base: 1.417rem;
+  --text-base--line-height: 1.5;
+  /* text-lg    default 1.125rem / 13.5pt →  +5pt  → 18.5pt  */
+  --text-lg: 1.542rem;
+  --text-lg--line-height: 1.45;
+  /* text-xl    default 1.25rem  / 15pt   →  +5pt  → 20pt    */
+  --text-xl: 1.667rem;
+  --text-xl--line-height: 1.4;
+  /* text-2xl   default 1.5rem   / 18pt   →  +5pt  → 23pt    */
+  --text-2xl: 1.917rem;
+  --text-2xl--line-height: 1.3;
+  /* text-3xl   default 1.875rem / 22.5pt →  +5pt  → 27.5pt  */
+  --text-3xl: 2.292rem;
+  --text-3xl--line-height: 1.2;
+  /* text-4xl   default 2.25rem  / 27pt   →  +5pt  → 32pt    */
+  --text-4xl: 2.667rem;
+  --text-4xl--line-height: 1.15;
+  /* text-5xl   default 3rem     / 36pt   →  +5pt  → 41pt    */
+  --text-5xl: 3.417rem;
+  --text-5xl--line-height: 1.1;
+  /* text-6xl   default 3.75rem  / 45pt   →  +5pt  → 50pt    */
+  --text-6xl: 4.167rem;
+  --text-6xl--line-height: 1.05;
+  /* text-7xl   default 4.5rem   / 54pt   →  +5pt  → 59pt    */
+  --text-7xl: 4.917rem;
+  --text-7xl--line-height: 1;
+  /* text-8xl   default 6rem     / 72pt   →  +5pt  → 77pt    */
+  --text-8xl: 6.417rem;
+  --text-8xl--line-height: 1;
+  /* text-9xl   default 8rem     / 96pt   →  +5pt  → 101pt   */
+  --text-9xl: 8.417rem;
+  --text-9xl--line-height: 1;
+}
+
+/* ─── Lock screen animations ─── */
+@keyframes lockShake {
+  0%, 100% { transform: translateX(0); }
+  15%      { transform: translateX(-10px); }
+  30%      { transform: translateX(10px); }
+  45%      { transform: translateX(-8px); }
+  60%      { transform: translateX(8px); }
+  75%      { transform: translateX(-4px); }
+  90%      { transform: translateX(4px); }
+}
+@keyframes lockFadeOut {
+  0%   { opacity: 1; transform: scale(1); }
+  60%  { opacity: 0.9; transform: scale(1.03); }
+  100% { opacity: 0; transform: scale(1.06); pointer-events: none; }
+}
+@keyframes unlockStep {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.lock-overlay {
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lock-shake {
+  animation: lockShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+.lock-exiting {
+  animation: lockFadeOut 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
