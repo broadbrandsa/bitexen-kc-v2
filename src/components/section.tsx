@@ -5,7 +5,7 @@ import { getSectionPosition } from "@/data/sections";
 import { Reveal } from "@/components/reveal";
 
 /** Sections that get the standout gradient treatment. */
-const FEATURE_IDS = new Set(["why-kc", "business-case", "why-bitexen", "conclusion"]);
+const FEATURE_IDS = new Set(["why-kc", "why-bitexen", "conclusion"]);
 
 /**
  * Section — a top-level content block on the proposal.

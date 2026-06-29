@@ -22,16 +22,15 @@ Rendered in order on the home page (see `src/data/sections.ts`):
 10. **New Revenue Streams** — opportunity/benefit table + commercial flywheel.
 11. **Value for Everyone** — stakeholder benefits (commercial, supporters, sponsors, club).
 12. **The Growth Engine** — the value flywheel.
-13. **The Business Case** — the MOSO 12-month model: KPIs, P&L chart, assumptions and milestone table.
-14. **Building Long-Term Value** — lessons learned + our approach.
-15. **Bringing It to Life** — matchday, rewards, community, sponsor experiences.
-16. **Beyond Fan Engagement** — club growth, exclusive access, recognition, future.
+13. **Building Long-Term Value** — lessons learned + our approach.
+14. **Bringing It to Life** — matchday, rewards, community, sponsor experiences.
+15. **Beyond Fan Engagement** — club growth, exclusive access, recognition, future.
     - _Interstitial — "A reminder" (mobile-first, invisible technology)._
-17. **Strategic Alignment** — Bitexen as long-term ecosystem partner.
-18. **How Bitexen Enables It** — the underlying infrastructure.
-19. **Why Bitexen** — KC × Bitexen capability comparison.
-20. **The Bigger Vision** — the long-term roadmap.
-21. **Conclusion** — synthesis + "Let's build it together" / working-session next step.
+16. **Strategic Alignment** — Bitexen as long-term ecosystem partner.
+17. **How Bitexen Enables It** — the underlying infrastructure.
+18. **Why Bitexen** — KC × Bitexen capability comparison.
+19. **The Bigger Vision** — the long-term roadmap.
+20. **Conclusion** — synthesis + "Let's build it together" / working-session next step.
 
 ## Navigation & UX
 
@@ -45,7 +44,7 @@ Rendered in order on the home page (see `src/data/sections.ts`):
 - Authentication beyond the static lock screen.
 - CMS / dynamic content — content is hard-coded in section components.
 - Forms, lead capture, or backend services.
-- Live/connected data feeds or interactive financial-model calculators (the Business Case shows a fixed, pre-computed model).
+- Financial models, projections, or interactive calculators.
 - Multi-language support.
 - Downloadable assets — no annex, document library, PDF export or source-file downloads.
 

@@ -16,7 +16,6 @@ import {
   Revenue,
   Stakeholders,
   GrowthEngine,
-  BusinessCase,
   LongTermValue,
   Experiences,
   Beyond,
@@ -51,7 +50,6 @@ export default function Home() {
       <Revenue />
       <Stakeholders />
       <GrowthEngine />
-      <BusinessCase />
       <LongTermValue />
       <Experiences />
       <Beyond />
